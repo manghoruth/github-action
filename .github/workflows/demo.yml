@@ -18,12 +18,11 @@ jobs:
             - name: checkout repo
               uses: actions/checkout@v3
             - name: create file
-              run: touch github-action.txt
-            - name: print hello world
-              run: echo Hello World
-            - name: display readme file
-              run: cat README.md
-
+              run: |
+                touch github-action.txt
+                ls -la
+                echo hello world
+                cat README.md
 
     build_job:
         needs: 
@@ -33,6 +32,8 @@ jobs:
         steps:
             - name: display Hello
               run: echo Hello
+            - name: display github-action.txt
+              run: cat github-action.txt
     deploy_job:
         needs: setup_job
         runs-on: macos-latest
