@@ -26,6 +26,7 @@ jobs:
 
 
     build_job:
+        needs: setup_jobs
         runs-on: windows-latest
         steps:
             - name: display Hello
